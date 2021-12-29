@@ -1,0 +1,145 @@
+# Silicon Labs Project Configuration Tools: slcp, v0, Component selection file.
+project_name: Coord1
+label: Coord1
+description: |-
+  ZigBee 3.0 Gateway, Light and Switch
+
+  Note that the Light and Switch scenario applications demonstrate the use of
+  NVM3, which is used instead of simulated EEPROM (simEE) to maintain persistent
+  storage.
+
+  ZigBee 3.0 provides a foundation of commissioning and network management
+  mechanisms to be used in all ZigBee applications. The sample scenario
+  presented here demonstrates the flexibility that the ZigBee 3.0 specification
+  provides to applications. They also act as an excellent starting point for users
+  wishing to build their own ZigBee 3.0 applications.
+
+  These applications can take on three possible roles.
+  1. Z3Gateway, the gateway can form a centralized network, and the light and the switch
+  can join the centralized network by performing network steering.
+  2. Z3Light, acting as a router, can form a distributed network, and the
+  Z3Switch, acting as an end device, can join the distributed network.
+  3. Z3Light, acting as a touchlink target, can touchlink with the
+  switch, acting as a touchlink initiator.
+  Note: touchlinking is optional in Zigbee 3.0. In this application the touchlink
+  functionality is available on endpoint 2. This functionality can be removed by
+  deleting endpoint 2 on the ZCL Clusters tab
+  The gateway provides CLI commands application interface to the user. The
+  CLI command "plugin network-creator start 1" can be issued in order to form
+  a centralized network. The gateway application can then be triggered to allow
+  other devices onto the network with the CLI command  "plugin network-creator-security
+  open-network". Devices can then join the network using the ZigBeeAlliance09
+  link key, or by manually entering the install code derived link key into the gateway
+  using the CLI command "plugin network-creator-security set-joining-link-key".
+  The CLI command "plugin network-creator-security close-network" will close the
+  network and no longer allow devices onto the gateway's network.
+
+  The light provides a very simplistic user interface. On power up, the light will
+  perform network steering automatically. If the light does not find a suitable
+  network to join, it forms its own distributed network. The light will not open
+  its network for joining as soon as the network comes up, so this must be done
+  manually. Once a distributed network is formed and opened, the switch may join
+  its network by performing network steering itself or through touchlink
+  commissioning.  Once the light is on a network, it will set its
+  COMMISSIONING_STATUS_LED. When the light starts identifying as a find and bind
+  target, it will blink its COMMISSIONING_STATUS_LED. The light will start
+  identifying as a find and bind target automatically when it brings its network
+  up, but users can reopen the find and bind target window by pushing either button
+  on the light at any time when it is on a network.
+
+  The switch provides a simple application interface to the user. When the switch
+  is not on a network, it can initiate network steering to join a network using
+  button 0. The switch can also initiate touchlink commissioning using button 1.
+  After the switch has successfully joining a network, it will perform the finding
+  and binding procedure for an initiator. After this takes place, the switch
+  should have at least two bindings to the light in its binding table: one for the
+  On/Off cluster and one for the Level Control cluster. While the switch is
+  performing its network commissioning, it will blink its
+  COMMISSIONING_STATUS_LED. When the switch is active on the network, it will
+  set its COMMISSIONING_STATUS_LED. Once the switch has finished finding and
+  binding, users can use buttons 0 and 1 to send On/Off Toggle and Level Control
+  Move to Level commands to the light, respectively.
+
+  This application also demonstrates functionality of a Green Power proxy
+  application.
+
+  The current debug printing settings in these applications are only for the
+  purpose of aiding users in understanding and debugging this sample scenario.
+  Debug printing should be turned off in order to save code size on a final
+  product.
+category: ZigBee Application
+package: Zigbee
+quality: alpha
+source:
+- {path: main.c}
+- {path: Z3Light_callbacks.c}
+tag: [prebuilt_demo]
+include:
+- {path: ''}
+sdk: {id: gecko_sdk, version: 3.3.0}
+toolchain_settings: []
+component:
+- {id: zigbee_multi_network_stub}
+- instance: [btn0, btn1]
+  id: simple_button
+- instance: [example]
+  id: cli
+- {id: zigbee_zll_level_control_server}
+- {id: EFR32MG24B010F1536IM48}
+- {id: zigbee_network_creator_security}
+- {id: zigbee_application_bootloader}
+- {id: zigbee_color_control_server}
+- {id: zigbee_binding_table}
+- {id: zigbee_scenes}
+- {id: zigbee_gp}
+- instance: [led0]
+  id: simple_led
+- {id: zigbee_zcl_framework_core}
+- {id: zigbee_debug_basic}
+- {id: zigbee_stack_diagnostics}
+- {id: zigbee_network_steering}
+- {id: zigbee_find_and_bind_target}
+- {id: zigbee_zll_scenes_server}
+- {id: zigbee_level_control}
+- {id: zigbee_identify}
+- {id: zigbee_counters}
+- {id: zigbee_zll_identify_server}
+- {id: zigbee_green_power_common}
+- {id: zigbee_basic}
+- {id: zigbee_zll_on_off_server}
+- {id: zigbee_green_power_client}
+- {id: brd4001a}
+- {id: brd4186b}
+- {id: zigbee_zll_utility_server}
+- instance: [vcom]
+  id: iostream_usart
+- {id: zigbee_interpan}
+- {id: zigbee_scan_dispatch}
+- {id: zigbee_source_route}
+- {id: zigbee_zll_commissioning_server}
+- {id: zigbee_groups_server}
+- {id: zigbee_zll}
+- {id: zigbee_pro_stack}
+- {id: zigbee_network_creator}
+- {id: zigbee_zll_commissioning_common}
+- {id: zigbee_on_off}
+- {id: zigbee_debug_print}
+- {id: zigbee_reporting}
+- {id: zigbee_install_code}
+- {id: zigbee_update_tc_link_key}
+config_file:
+- {path: ../../../../../SiliconLabs/SimplicityStudio/v5_2/developer/sdks/gecko_sdk_suite/v3.3/protocol/zigbee/app/framework/scenarios/z3/Z3Light/config/zcl/zcl_config.zap,
+  directory: zcl}
+template_contribution:
+- name: cluster_functions
+  priority: 0
+  value: {cluster_name: OnOff, cluster_id: 6, cluster_type: server, attribute_changed_function: emberAfOnOffClusterServerAttributeChangedCallback}
+configuration:
+- {name: SL_BOARD_ENABLE_VCOM, value: '1'}
+- {name: SL_IOSTREAM_USART_VCOM_FLOW_CONTROL_TYPE, value: usartHwFlowControlCtsAndRts}
+- {name: SL_CLI_MAX_INPUT_ARGUMENTS, value: '16'}
+- {name: SLI_ZIGBEE_PRIMARY_NETWORK_DEVICE_TYPE, value: SLI_ZIGBEE_NETWORK_DEVICE_TYPE_ROUTER}
+- {name: SLI_ZIGBEE_PRIMARY_NETWORK_SECURITY_TYPE, value: SLI_ZIGBEE_NETWORK_SECURITY_TYPE_3_0}
+- {name: SL_CLI_PROMPT_STRING, value: '"Z3Light>"'}
+ui_hints: {}
+
