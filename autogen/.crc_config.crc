@@ -38,6 +38,7 @@ sl_simple_button_btn0_config.h=714815580
 sl_simple_button_btn1_config.h=-487538522
 sl_simple_button_config.h=420306
 sl_simple_led_led0_config.h=908622594
+sl_simple_led_led1_config.h=102621047
 sl_sleeptimer_config.h=-1879962229
 sl_token_manager_config.h=-1101352028
 sl_zigbee_binding_table_config.h=1542557491

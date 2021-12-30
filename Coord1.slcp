@@ -92,7 +92,7 @@ component:
 - {id: zigbee_binding_table}
 - {id: zigbee_scenes}
 - {id: zigbee_gp}
-- instance: [led0]
+- instance: [led0, led1]
   id: simple_led
 - {id: zigbee_zcl_framework_core}
 - {id: zigbee_debug_basic}

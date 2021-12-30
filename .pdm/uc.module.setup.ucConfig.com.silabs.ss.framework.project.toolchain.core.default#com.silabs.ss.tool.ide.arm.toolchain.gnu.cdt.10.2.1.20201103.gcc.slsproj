@@ -39,6 +39,7 @@
     <file name="sl_device_init_lfxo_config.h" generated="true" linked="false" uri="studio:/project/config/sl_device_init_lfxo_config.h"/>
     <file name="sl_zigbee_green_power_config.h" generated="true" linked="false" uri="studio:/project/config/sl_zigbee_green_power_config.h"/>
     <file name="sl_simple_led_led0_config.h" generated="true" linked="false" uri="studio:/project/config/sl_simple_led_led0_config.h"/>
+    <file name="sl_simple_led_led1_config.h" generated="true" linked="false" uri="studio:/project/config/sl_simple_led_led1_config.h"/>
     <file name="zcl-framework-core-config.h" generated="true" linked="false" uri="studio:/project/config/zcl-framework-core-config.h"/>
     <file name="concentrator-config.h" generated="true" linked="false" uri="studio:/project/config/concentrator-config.h"/>
     <file name="sl_rail_util_pti_config.h" generated="true" linked="false" uri="studio:/project/config/sl_rail_util_pti_config.h"/>

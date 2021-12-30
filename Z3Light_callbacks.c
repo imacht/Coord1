@@ -35,7 +35,7 @@
 #include "sl_simple_led_instances.h"
 #endif // SL_CATALOG_LED0_PRESENT
 #define COMMISSIONING_STATUS_LED (&sl_led_led0)
-#define ON_OFF_LIGHT_LED         (&sl_led_led0)
+#define ON_OFF_LIGHT_LED         (&sl_led_led1)
 #define LED_BLINK_PERIOD_MS      2000
 static sl_zigbee_event_t commissioning_led_event;
 static sl_zigbee_event_t finding_and_binding_event;
@@ -172,11 +172,11 @@ void emberAfPluginNetworkSteeringCompleteCallback(EmberStatus status,
   emberAfCorePrintln("Join network complete: 0x%X", status);
 
   if (status != EMBER_SUCCESS) {
-    // Initialize our ZLL security now so that we are ready to be a touchlink
+    // Initialise our ZLL security now so that we are ready to be a touchlink
     // target at any point.
     status = emberAfZllSetInitialSecurityState();
     if (status != EMBER_SUCCESS) {
-      emberAfCorePrintln("Error: cannot initialize ZLL security: 0x%X", status);
+      emberAfCorePrintln("Error: cannot initialise ZLL security: 0x%X", status);
     }
 
     status = emberAfPluginNetworkCreatorStart(false); // distributed
