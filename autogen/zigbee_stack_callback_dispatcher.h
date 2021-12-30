@@ -226,6 +226,11 @@ void emAfStackStatusCallback(
       // EMBER_NETWORK_DOWN, EMBER_JOIN_FAILED, EMBER_MOVE_FAILED
       EmberStatus status)
 ;
+void emberAfPluginConcentratorStackStatusCallback(
+      // Stack status. One of the following: EMBER_NETWORK_UP,
+      // EMBER_NETWORK_DOWN, EMBER_JOIN_FAILED, EMBER_MOVE_FAILED
+      EmberStatus status)
+;
 void emAfPluginGreenPowerClientStackStatusCallback(
       // Stack status. One of the following: EMBER_NETWORK_UP,
       // EMBER_NETWORK_DOWN, EMBER_JOIN_FAILED, EMBER_MOVE_FAILED
@@ -417,6 +422,12 @@ void emAfIncomingManyToOneRouteRequest(
 
 // Incoming Route Error
 void emAfIncomingRouteError(
+      // EMBER_SOURCE_ROUTE_FAILURE or EMBER_MANY_TO_ONE_ROUTE_FAILURE.
+      EmberStatus status,
+      // The short id of the remote node.
+      EmberNodeId target)
+;
+void emAfPluginConcentratorIncomingRouteErrorCallback(
       // EMBER_SOURCE_ROUTE_FAILURE or EMBER_MANY_TO_ONE_ROUTE_FAILURE.
       EmberStatus status,
       // The short id of the remote node.

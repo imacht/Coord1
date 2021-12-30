@@ -36,6 +36,7 @@ void emAfEventInit(void)
 
 void emAfLocalDataInit(void)
 {
+  emberAfPluginConcentratorInitCallback(SL_ZIGBEE_INIT_LEVEL_LOCAL_DATA);
   emberAfPluginCountersInitCallback(SL_ZIGBEE_INIT_LEVEL_LOCAL_DATA);
   emberAfPluginGreenPowerClientInitCallback(SL_ZIGBEE_INIT_LEVEL_LOCAL_DATA);
   emberAfPluginInterpanInitCallback(SL_ZIGBEE_INIT_LEVEL_LOCAL_DATA);

@@ -1,5 +1,6 @@
 #CRC Codes for initially generated config files -- do not modify!
 color-control-server-config.h=-1549495834
+concentrator-config.h=-1989523483
 counters-config.h=-1681767068
 emlib_core_debug_config.h=-551881347
 find-and-bind-target-config.h=-1353458642

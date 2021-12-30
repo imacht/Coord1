@@ -729,6 +729,117 @@ Example syntax (.slcc or .slcp) for populating this file:
 </div>
 <div class="group">
   <div class="group-header">
+    <h3 class="group-name"> concentrator</h3>
+  </div>
+  <div class="group-info">
+    <span class="help">concentrator related commands</span>
+    
+    <div class="command-list">
+    
+    
+  
+  <div class="command">
+    <div class="command-header-bar"></div>
+    <div class="command-header">
+      <span class="command-name"> concentrator status</span>
+      <span class="command-handler">emberAfPluginConcentratorStatus</span>
+    </div>
+    <div class="command-info">
+      <div class="help">Prints current status and configured parameters of the concentrator</div>
+      
+      
+    </div>
+  </div>
+    
+    
+  
+  <div class="command">
+    <div class="command-header-bar"></div>
+    <div class="command-header">
+      <span class="command-name"> concentrator start</span>
+      <span class="command-handler">emberAfPluginConcentratorStartDiscoveryCommand</span>
+    </div>
+    <div class="command-info">
+      <div class="help">Starts the periodic broadcast of MTORRs</div>
+      
+      
+    </div>
+  </div>
+    
+    
+  
+  <div class="command">
+    <div class="command-header-bar"></div>
+    <div class="command-header">
+      <span class="command-name"> concentrator stop</span>
+      <span class="command-handler">emberAfPluginConcentratorStopDiscoveryCommand</span>
+    </div>
+    <div class="command-info">
+      <div class="help">Stops the periodic broadcast of MTORRs</div>
+      
+      
+    </div>
+  </div>
+    
+    
+  
+  <div class="command">
+    <div class="command-header-bar"></div>
+    <div class="command-header">
+      <span class="command-name"> concentrator agg</span>
+      <span class="command-handler">emberAfPluginConcentratorAggregationCommand</span>
+    </div>
+    <div class="command-info">
+      <div class="help">(Requires Concentrator Support to be enabled on this device.) Schedules a ZigBee PRO Many To One Route Request (MTORR) to be sent out at next opportunity, which will cause aggregation (many-to-one) routes to be created towards this concentrator.</div>
+      
+      
+    </div>
+  </div>
+    
+    
+  
+  <div class="command">
+    <div class="command-header-bar"></div>
+    <div class="command-header">
+      <span class="command-name"> concentrator print-table</span>
+      <span class="command-handler">emberAfPluginConcentratorPrintSourceRouteTable</span>
+    </div>
+    <div class="command-info">
+      <div class="help">Print the SOC/NCP source route table.</div>
+      
+      
+    </div>
+  </div>
+    
+    
+  
+  <div class="command">
+    <div class="command-header-bar"></div>
+    <div class="command-header">
+      <span class="command-name"> concentrator set-router-behavior</span>
+        <span class="command-argument">u8</span>
+      <span class="command-handler">emberAfPluginConcentratorSetRouterBehaviorCommand</span>
+    </div>
+    <div class="command-info">
+      <div class="help">This command allows the user to set the router behavior for this plugin. The argument values come  from concentrator-support.h in the enum with members starting with EMBER_AF_PLUGIN_CONCENTRATOR_ROUTER_BEHAVIOR_.</div>
+      
+      
+      <div class="argument-list">
+      <div class="arguments-title">Arguments</div>
+      <ul>
+        <li>
+        <span class="argument-name">u8</span>The value of a EMBER_AF_PLUGIN_CONCENTRATOR_ROUTER_BEHAVIOR_ enum member.
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+    </div>
+  </div>
+</div>
+<div class="group">
+  <div class="group-header">
     <h3 class="group-name"> counters</h3>
   </div>
   <div class="group-info">

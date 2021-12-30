@@ -125,6 +125,12 @@ extern "C" {
 void emberAfPluginIdleSleepStatusCommand(sl_cli_command_arg_t *arguments);
 void emberAfPluginIdleSleepStayAwakeCommand(sl_cli_command_arg_t *arguments);
 void emberAfPluginIdleSleepAwakeWhenNotJoinedCommand(sl_cli_command_arg_t *arguments);
+void emberAfPluginConcentratorStatus(sl_cli_command_arg_t *arguments);
+void emberAfPluginConcentratorStartDiscoveryCommand(sl_cli_command_arg_t *arguments);
+void emberAfPluginConcentratorStopDiscoveryCommand(sl_cli_command_arg_t *arguments);
+void emberAfPluginConcentratorAggregationCommand(sl_cli_command_arg_t *arguments);
+void emberAfPluginConcentratorPrintSourceRouteTable(sl_cli_command_arg_t *arguments);
+void emberAfPluginConcentratorSetRouterBehaviorCommand(sl_cli_command_arg_t *arguments);
 void emAfCliInfoCommand(sl_cli_command_arg_t *arguments);
 void printAllLibraryStatus(sl_cli_command_arg_t *arguments);
 void emAfCliBsendCommand(sl_cli_command_arg_t *arguments);
@@ -311,6 +317,42 @@ static const sl_cli_command_info_t cli_cmd_idle_hyphen_sleep_awake_hyphen_when_h
   SL_CLI_COMMAND(emberAfPluginIdleSleepAwakeWhenNotJoinedCommand,
                  "Set or clear stay awake when not joined",
                   "" SL_CLI_UNIT_SEPARATOR,
+                 {SL_CLI_ARG_UINT8, SL_CLI_ARG_END, });
+
+static const sl_cli_command_info_t cli_cmd_concentrator_status = \
+  SL_CLI_COMMAND(emberAfPluginConcentratorStatus,
+                 "Prints current status and configured parameters of the concentrator",
+                  "",
+                 {SL_CLI_ARG_END, });
+
+static const sl_cli_command_info_t cli_cmd_concentrator_start = \
+  SL_CLI_COMMAND(emberAfPluginConcentratorStartDiscoveryCommand,
+                 "Starts the periodic broadcast of MTORRs",
+                  "",
+                 {SL_CLI_ARG_END, });
+
+static const sl_cli_command_info_t cli_cmd_concentrator_stop = \
+  SL_CLI_COMMAND(emberAfPluginConcentratorStopDiscoveryCommand,
+                 "Stops the periodic broadcast of MTORRs",
+                  "",
+                 {SL_CLI_ARG_END, });
+
+static const sl_cli_command_info_t cli_cmd_concentrator_agg = \
+  SL_CLI_COMMAND(emberAfPluginConcentratorAggregationCommand,
+                 "(Requires Concentrator Support to be enabled on this device.) Schedules a ZigBee PRO Many To One Route Request (MTORR) to be sent out at next opportunity, which will cause aggregation (many-to-one) routes to be created towards this concentrator.",
+                  "",
+                 {SL_CLI_ARG_END, });
+
+static const sl_cli_command_info_t cli_cmd_concentrator_print_hyphen_table = \
+  SL_CLI_COMMAND(emberAfPluginConcentratorPrintSourceRouteTable,
+                 "Print the SOC/NCP source route table.",
+                  "",
+                 {SL_CLI_ARG_END, });
+
+static const sl_cli_command_info_t cli_cmd_concentrator_set_hyphen_router_hyphen_behavior = \
+  SL_CLI_COMMAND(emberAfPluginConcentratorSetRouterBehaviorCommand,
+                 "This command allows the user to set the router behavior for this plugin. The argument values come  from concentrator-support.h in the enum with members starting with EMBER_AF_PLUGIN_CONCENTRATOR_ROUTER_BEHAVIOR_.",
+                  "The value of a EMBER_AF_PLUGIN_CONCENTRATOR_ROUTER_BEHAVIOR_ enum member." SL_CLI_UNIT_SEPARATOR,
                  {SL_CLI_ARG_UINT8, SL_CLI_ARG_END, });
 
 static const sl_cli_command_info_t cli_cmd__info = \
@@ -1322,6 +1364,18 @@ static const sl_cli_command_entry_t idle_hyphen_sleep_group_table[] = {
 static const sl_cli_command_info_t cli_cmd_grp_idle_hyphen_sleep = \
   SL_CLI_COMMAND_GROUP(idle_hyphen_sleep_group_table, "Commands to control idling/sleeping of the device");
 
+static const sl_cli_command_entry_t concentrator_group_table[] = {
+  { "status", &cli_cmd_concentrator_status, false },
+  { "start", &cli_cmd_concentrator_start, false },
+  { "stop", &cli_cmd_concentrator_stop, false },
+  { "agg", &cli_cmd_concentrator_agg, false },
+  { "print-table", &cli_cmd_concentrator_print_hyphen_table, false },
+  { "set-router-behavior", &cli_cmd_concentrator_set_hyphen_router_hyphen_behavior, false },
+  { NULL, NULL, false },
+};
+static const sl_cli_command_info_t cli_cmd_grp_concentrator = \
+  SL_CLI_COMMAND_GROUP(concentrator_group_table, "concentrator related commands");
+
 static const sl_cli_command_entry_t counters_group_table[] = {
   { "print", &cli_cmd_counters_print, false },
   { "simple-print", &cli_cmd_counters_simple_hyphen_print, false },
@@ -1536,6 +1590,7 @@ static const sl_cli_command_info_t cli_cmd_grp_zll_hyphen_commissioning = \
 
 static const sl_cli_command_entry_t plugin_group_table[] = {
   { "idle-sleep", &cli_cmd_grp_idle_hyphen_sleep, false },
+  { "concentrator", &cli_cmd_grp_concentrator, false },
   { "counters", &cli_cmd_grp_counters, false },
   { "counter", &cli_cmd_grp_counter, false },
   { "find_and_bind", &cli_cmd_grp_find_and_bind, false },

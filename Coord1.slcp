@@ -97,6 +97,7 @@ component:
 - {id: zigbee_zcl_framework_core}
 - {id: zigbee_debug_basic}
 - {id: zigbee_stack_diagnostics}
+- {id: zigbee_concentrator}
 - {id: zigbee_network_steering}
 - {id: zigbee_find_and_bind_target}
 - {id: zigbee_zll_scenes_server}
@@ -108,8 +109,8 @@ component:
 - {id: zigbee_basic}
 - {id: zigbee_zll_on_off_server}
 - {id: zigbee_green_power_client}
-- {id: brd4001a}
 - {id: brd4186b}
+- {id: brd4001a}
 - {id: zigbee_zll_utility_server}
 - instance: [vcom]
   id: iostream_usart

@@ -923,6 +923,12 @@
                 <file name="color-control-server-cb.c" uri="studio:/sdk/protocol/zigbee/app/framework/plugin/color-control-server/color-control-server-cb.c"/>
                 <file name="color-control-server.h" uri="studio:/sdk/protocol/zigbee/app/framework/plugin/color-control-server/color-control-server.h"/>
               </folder>
+              <folder name="concentrator">
+                <file name="concentrator-support.c" uri="studio:/sdk/protocol/zigbee/app/framework/plugin/concentrator/concentrator-support.c"/>
+                <file name="concentrator-support-cli.c" uri="studio:/sdk/protocol/zigbee/app/framework/plugin/concentrator/concentrator-support-cli.c"/>
+                <file name="concentrator-cb.c" uri="studio:/sdk/protocol/zigbee/app/framework/plugin/concentrator/concentrator-cb.c"/>
+                <file name="concentrator-support.h" uri="studio:/sdk/protocol/zigbee/app/framework/plugin/concentrator/concentrator-support.h"/>
+              </folder>
               <folder name="counters">
                 <file name="counters-cli.c" uri="studio:/sdk/protocol/zigbee/app/framework/plugin/counters/counters-cli.c"/>
                 <file name="counters-ota.c" uri="studio:/sdk/protocol/zigbee/app/framework/plugin/counters/counters-ota.c"/>
@@ -1198,8 +1204,8 @@
       </folder>
     </folder>
   </folder>
-  <file name="main.c" linked="false" uri="studio:/sdk/protocol/zigbee/app/framework/scenarios/z3/Z3Light/main.c"/>
-  <file name="Z3Light_callbacks.c" linked="false" uri="studio:/sdk/protocol/zigbee/app/framework/scenarios/z3/Z3Light/Z3Light_callbacks.c"/>
+  <file name="main.c" linked="false" uri="studio:/project/main.c"/>
+  <file name="Z3Light_callbacks.c" linked="false" uri="studio:/project/Z3Light_callbacks.c"/>
   <includePath uri="studio:/project/"/>
   <includePath uri="studio:/sdk/platform/Device/SiliconLabs/EFR32MG24/Include"/>
   <includePath uri="studio:/sdk/platform/common/inc"/>
@@ -1256,6 +1262,7 @@
   <includePath uri="studio:/sdk/protocol/zigbee/app/em260"/>
   <includePath uri="studio:/sdk/protocol/zigbee/app/util/serial"/>
   <includePath uri="studio:/sdk/protocol/zigbee/app/framework/plugin/color-control-server"/>
+  <includePath uri="studio:/sdk/protocol/zigbee/app/framework/plugin/concentrator"/>
   <includePath uri="studio:/sdk/protocol/zigbee/app/framework/plugin/counters"/>
   <includePath uri="studio:/sdk/protocol/zigbee/stack/framework"/>
   <includePath uri="studio:/sdk/protocol/zigbee/app/framework/plugin/debug-print"/>

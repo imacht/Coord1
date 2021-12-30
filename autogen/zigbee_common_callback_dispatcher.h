@@ -35,6 +35,7 @@ void emAfPluginUpdateTcLinkKeyBeginTcLinkKeyUpdateInit(uint8_t init_level);
 void emAfPluginZllIdentifyServerInitCallback(uint8_t init_level);
 // Local data Init
 void emAfLocalDataInit(void);
+void emberAfPluginConcentratorInitCallback(uint8_t init_level);
 void emberAfPluginCountersInitCallback(uint8_t init_level);
 void emberAfPluginGreenPowerClientInitCallback(uint8_t init_level);
 void emberAfPluginInterpanInitCallback(uint8_t init_level);

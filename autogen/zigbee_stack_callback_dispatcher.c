@@ -258,6 +258,7 @@ void emAfStackStatus(
 (void)status;
 
 emAfStackStatusCallback(status);
+emberAfPluginConcentratorStackStatusCallback(status);
 emAfPluginGreenPowerClientStackStatusCallback(status);
 emAfPluginNetworkCreatorSecurityStackStatusCallback(status);
 emAfPluginNetworkSteeringStackStatusCallback(status);
@@ -502,6 +503,7 @@ void emAfIncomingRouteError(
 (void)status;
 (void)target;
 
+emAfPluginConcentratorIncomingRouteErrorCallback(status, target);
 }
 
 

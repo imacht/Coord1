@@ -2591,6 +2591,26 @@
 			<locationURI>STUDIO_SDK_LOC/protocol/zigbee/app/framework/plugin/color-control-server/color-control-server.h</locationURI>
 		</link>
 		<link>
+			<name>gecko_sdk_3.3.0/protocol/zigbee/app/framework/plugin/concentrator/concentrator-cb.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/protocol/zigbee/app/framework/plugin/concentrator/concentrator-cb.c</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_3.3.0/protocol/zigbee/app/framework/plugin/concentrator/concentrator-support-cli.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/protocol/zigbee/app/framework/plugin/concentrator/concentrator-support-cli.c</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_3.3.0/protocol/zigbee/app/framework/plugin/concentrator/concentrator-support.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/protocol/zigbee/app/framework/plugin/concentrator/concentrator-support.c</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_3.3.0/protocol/zigbee/app/framework/plugin/concentrator/concentrator-support.h</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/protocol/zigbee/app/framework/plugin/concentrator/concentrator-support.h</locationURI>
+		</link>
+		<link>
 			<name>gecko_sdk_3.3.0/protocol/zigbee/app/framework/plugin/counters/counters-cb.c</name>
 			<type>1</type>
 			<locationURI>STUDIO_SDK_LOC/protocol/zigbee/app/framework/plugin/counters/counters-cb.c</locationURI>
